@@ -12,6 +12,14 @@
                         <img src="/image/{{$stock->imagePath}}" alt="" class="incart">
                         <br>
                         {{$stock->explain}} <br>
+
+                        {{-- 追加 --}}
+                        <form action="addMyCart" method="post">
+                            @csrf
+                            <input type="hidden" name="stockId" value="{{ $stock->id }}">
+                            <input type="submit" value="カートに入れる">
+                        </form>
+                        {{-- ここまで --}}
                     </div>
 
                     @endforeach
