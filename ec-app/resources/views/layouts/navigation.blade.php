@@ -12,6 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('stock.index')" :active="request()->routeIs('stock.index')">
+                        商品一覧
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('stock.myCart')" :active="request()->routeIs('stock.myCart')">
                         MyCart
                     </x-nav-link>
