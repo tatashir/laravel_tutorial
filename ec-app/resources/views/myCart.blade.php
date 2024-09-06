@@ -6,7 +6,6 @@
             </h1>
             <p class="text-center">{{ $message ?? '' }}</p><br>
             <div class="">
-                {{-- 追加 --}}
                 @foreach($myCartStocks as $stock)
                 <div class="text-center rounded shadow-lg bg-white p-6 m-4">
                     {{$stock->stock->name}} <br>
@@ -21,7 +20,9 @@
                     </form>
                 </div>
                 @endforeach
-                {{-- ここまで --}}
+                @if($myCartStocks->isEmpty())
+                <p class="text-center">カートはからっぽです。</p>
+                @endif
             </div>
         </div>
     </div>
