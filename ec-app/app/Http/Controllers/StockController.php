@@ -10,6 +10,6 @@ class StockController extends Controller
     public function index()
     {
         $stocks = Stock::SimplePaginate(6);
-        return view('stocks');
+        return view('stocks', compact('stocks'));
     }
 }
