@@ -30,4 +30,13 @@ class StockController extends Controller
 
         return view('myCart', compact('myCartStocks', 'message'));
     }
+
+    public function deleteMyCartStock(Request $request, UserStock $userStock)
+    {
+        $stockId = $request->stockId;
+        $message = $userStock->deleteMyCartStock($stockId);
+        $myCartStocks = $userStock->showMyCart();
+
+        return view('myCart', compact('myCartStocks', 'message'));
+    }
 }
