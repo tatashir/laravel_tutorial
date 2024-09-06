@@ -15,26 +15,18 @@ class StockController extends Controller
         return view('stocks', compact('stocks'));
     }
 
-    public function myCart()
+    public function myCart(UserStock $userStock)
     {
-        $myCartStocks = UserStock::all();
+        $myCartStocks = $userStock->showMyCart();
         return view('myCart', compact('myCartStocks'));
     }
 
-    public function addMyCart(Request $request)
+    public function addMyCart(Request $request, UserStock $userStock)
     {
         $userId = Auth::id();
-        $stockId = $request->input('stockId');
-
-        $cartAddInfo = UserStock::firstOrCreate(['stockId' => $stockId, 'userId' => $userId]);
-
-        if ($cartAddInfo->wasRecentlyCreated) {
-            $message = 'カートに追加しました';
-        } else {
-            $message = 'カートに登録済みです';
-        }
-
-        $myCartStocks = UserStock::where('userId', $userId)->get();
+        $stockId = $request->stockId;
+        $message = $userStock->addCart($stockId);
+        $myCartStocks = $userStock->showMyCart();
 
         return view('myCart', compact('myCartStocks', 'message'));
     }
