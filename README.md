@@ -1,5 +1,7 @@
 # laravel_tutorial
 
+`Docker`, `PHP`, `Composer`をインストールしておく
+
 zsh
 ```
 source ./ec-app/.zshrc
