@@ -13,6 +13,10 @@ cp ./ec-app/.zshrc ./ec-app/.bashrc
 source ./ec-app/.bashrc
 ```
 
+```
+php artisan sail:install
+```
+
 コンテナ起動
 ```
 sail up -d
