@@ -25,7 +25,7 @@ class StockController extends Controller
     {
         $userId = Auth::id();
         $stockId = $request->stockId;
-        $message = $userStock->addCart($stockId);
+        $message = $userStock->addMyCart($stockId);
         $myCartStocks = $userStock->showMyCart();
 
         return view('myCart', compact('myCartStocks', 'message'));
